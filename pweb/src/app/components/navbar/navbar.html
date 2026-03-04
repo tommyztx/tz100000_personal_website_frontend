@@ -1,0 +1,28 @@
+<nav class="navbar" [class.scrolled]="isScrolled">
+    <div class="container navbar__inner">
+  
+      <a routerLink="/" class="navbar__logo">
+        <span class="mono">TZ</span>
+      </a>
+  
+      <ul class="navbar__links">
+        <li *ngFor="let link of navLinks; let i = index">
+          <a
+            [routerLink]="link.path"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: link.exact }"
+            class="navbar__link"
+            [style.--i]="i"
+          >
+            <span class="mono navbar__index">0{{ i + 1 }}</span>
+            <span>{{ link.label }}</span>
+          </a>
+        </li>
+      </ul>
+  
+      <a href="tommyzhengtx@gmail.com" class="navbar__cta mono">
+        say hello ↗
+      </a>
+  
+    </div>
+  </nav>
