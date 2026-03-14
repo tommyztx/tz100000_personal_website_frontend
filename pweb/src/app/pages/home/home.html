@@ -3,42 +3,63 @@
     <!-- ── Hero ── -->
     <section class="hero">
       <div class="container hero__inner">
-  
-        <div class="hero__meta mono reveal">
-          <span class="accent">&#x25CF;</span> Available for opportunities
+ 
+        <!-- Left: Text -->
+        <div class="hero__left">
+   
+          <div class="hero__meta mono reveal">
+            <span class="dot"></span> Available for opportunities
+          </div>
+   
+          <h1 class="hero__title reveal">
+            Tommy<br>
+            <span class="hero__title--dim">Zheng</span>
+          </h1>
+   
+          <div class="hero__sub reveal">
+            <p>
+              Software Engineer building systems that are<br>
+              <em>precise, scalable,</em> and worth understanding.
+            </p>
+          </div>
+   
+          <div class="hero__actions reveal">
+            <a routerLink="/experience" class="btn btn--primary">
+              View my work
+            </a>
+            <a routerLink="/architecture" class="btn btn--ghost mono">
+              How this site works →
+            </a>
+          </div>
+   
+          <div class="hero__scroll-hint mono reveal">
+            scroll to explore
+          </div>
+   
         </div>
-  
-        <h1 class="hero__title reveal">
-          Tommy<br>
-          <span class="hero__title--dim">Ztx</span>
-        </h1>
-  
-        <div class="hero__sub reveal">
-          <p>
-            Software Engineer building systems that are<br>
-            <em>precise, scalable,</em> and worth understanding.
-          </p>
+
+      <!-- Right: Headshot -->
+      <div class="hero__right reveal">
+        <div class="hero__photo-wrap">
+          <!--
+            Replace src with your actual headshot path.
+            e.g. src="/assets/images/headshot.jpg"
+          -->
+          <img
+            class="hero__photo"
+            src="/images/face.jpg"
+            alt="Tommy Zheng Headshot"
+          />
+          <!-- <div class="hero__photo-placeholder">
+            <span class="mono">your photo here</span>
+          </div> -->
+          <div class="hero__photo-border"></div>
         </div>
-  
-        <div class="hero__actions reveal">
-          <a routerLink="/experience" class="btn btn--primary">
-            View my work
-          </a>
-          <a routerLink="/architecture" class="btn btn--ghost mono">
-            How this site works →
-          </a>
-        </div>
-  
-        <div class="hero__scroll-hint mono reveal">
-          scroll to explore
-        </div>
-  
       </div>
-  
-      <!-- Decorative grid lines -->
-      <div class="hero__grid" aria-hidden="true">
-        <span></span><span></span><span></span><span></span>
-      </div>
+    </div>
+      <!-- Light mountain overlay — photo sits behind this -->
+    
+      <div class="hero__overlay" aria-hidden="true"></div>
     </section>
   
     <div class="divider"></div>
@@ -105,10 +126,10 @@
     <!-- ── Footer Strip ── -->
     <footer class="footer">
       <div class="container footer__inner">
-        <span class="mono text-muted">© 2025 Tommy Ztx</span>
+        <span class="mono text-muted">Contact Me Tommy Zheng </span>
         <div class="footer__links">
-          <a href="https://github.com" target="_blank" class="mono footer__link">GitHub ↗</a>
-          <a href="https://linkedin.com" target="_blank" class="mono footer__link">LinkedIn ↗</a>
+          <a href="https://github.com/tommyztx" target="_blank" class="mono footer__link">GitHub ↗</a>
+          <a href="https://www.linkedin.com/in/tommyzhengtx/" target="_blank" class="mono footer__link">LinkedIn ↗</a>
         </div>
       </div>
     </footer>
