@@ -47,11 +47,13 @@ export class ExperienceComponent {
   currentEmployer = 'Fidelity Investments';
 
   summary =
-    'Software engineer at Fidelity Investments building full-stack and cloud systems ' +
-    'across Angular, Spring Boot, PostgreSQL, and AWS. I focus on automation and ' +
-    'maintainable design, from AI agent-driven workflows that cut developer workload 45% ' +
-    'to API migrations that saved ~$40,000/month. Currently pursuing an MS in Computer ' +
-    'Science with an AI specialization at Georgia Tech.';
+    'Software engineer at Fidelity Investments who designs maintainable, object-oriented ' +
+    'systems across Angular, Spring Boot, PostgreSQL, and AWS. I build with layered MVC ' +
+    'architecture, dependency injection, and RESTful design so code stays testable and easy ' +
+    'to extend. I start from client requirements, from scoping a four-service application ' +
+    'to leading a client onboarding workstream, and learn the business space so the solution ' +
+    'fits the problem. I am always exploring how AI can take on routine work, from automation ' +
+    'agents and skills to full agentic workflows.';
 
   employers: Employer[] = [
     {

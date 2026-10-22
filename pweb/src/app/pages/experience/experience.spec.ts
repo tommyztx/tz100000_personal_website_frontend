@@ -27,4 +27,20 @@ describe('ExperienceComponent', () => {
     expect(component.primaryRole).toBe('Software Engineer');
     expect(component.employers[0].roles[0].title).toBe('Software Engineer');
   });
+
+  it('should link each jump link to its section on this page', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    const links = Array.from(compiled.querySelectorAll<HTMLAnchorElement>('.exp__jump a'));
+    const hrefs = links.map((a) => a.getAttribute('href'));
+
+    expect(hrefs).toEqual([
+      '/experience#work',
+      '/experience#projects',
+      '/experience#skills',
+      '/experience#education',
+    ]);
+    hrefs.forEach((href) => {
+      expect(compiled.querySelector(href!.split('/experience')[1])).toBeTruthy();
+    });
+  });
 });
