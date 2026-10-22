@@ -1,0 +1,229 @@
+/* ── Header ── */
+.exp__header {
+  padding: calc(var(--nav-height) + var(--space-xl)) 0 var(--space-xl);
+}
+
+.exp__header .container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.exp__title {
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  line-height: 1;
+}
+
+.exp__current {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  color: var(--color-accent);
+}
+
+.exp__current .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+.exp__summary {
+  max-width: 720px;
+  font-size: 1.1rem;
+  color: var(--color-text-dim);
+}
+
+.exp__jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+  margin-top: var(--space-sm);
+  font-size: 0.8rem;
+}
+
+.exp__jump a {
+  color: var(--color-text-dim);
+  transition: color var(--duration-fast);
+}
+
+.exp__jump a:hover { color: var(--color-accent); }
+
+/* ── Sections ── */
+.exp__section {
+  padding: var(--space-xl) 0;
+  scroll-margin-top: var(--nav-height);
+}
+
+.exp__section--alt {
+  background: var(--color-bg-alt);
+}
+
+.section__label {
+  margin-bottom: var(--space-lg);
+}
+
+/* ── Employers & Roles ── */
+.employer + .employer {
+  margin-top: var(--space-xl);
+}
+
+.employer__head,
+.role__head,
+.project__head,
+.edu__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-xs) var(--space-md);
+}
+
+.employer__head {
+  margin-bottom: var(--space-md);
+}
+
+.employer__name {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  padding-left: var(--space-lg);
+  border-left: 1px solid var(--color-accent-pale);
+}
+
+.role {
+  position: relative;
+}
+
+.role::before {
+  content: '';
+  position: absolute;
+  left: calc(-1 * var(--space-lg) - 5px);
+  top: 0.55rem;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--color-bg);
+  border: 1px solid var(--color-accent-light);
+}
+
+.role--primary {
+  padding: var(--space-lg);
+  border: 1px solid var(--color-accent-pale);
+  border-radius: 3px;
+  background: var(--color-surface-solid);
+  box-shadow: 0 8px 32px rgba(90, 122, 90, 0.08);
+}
+
+.role--primary::before {
+  left: calc(-2 * var(--space-lg) - 5px);
+  top: calc(var(--space-lg) + 0.55rem);
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.role__title {
+  font-size: 1.3rem;
+}
+
+.role--primary .role__title {
+  font-size: 1.6rem;
+}
+
+.role__dates,
+.project__dates {
+  font-size: 0.75rem;
+  color: var(--color-accent);
+  white-space: nowrap;
+}
+
+/* ── Shared bullets / tags ── */
+.bullets {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin: var(--space-md) 0;
+  padding-left: 1.1rem;
+  color: var(--color-text-dim);
+  font-size: 0.95rem;
+}
+
+.bullets li::marker { color: var(--color-accent-light); }
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+/* ── Projects ── */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+}
+
+.project {
+  padding: var(--space-lg);
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  background: var(--color-surface-solid);
+}
+
+.project--wip {
+  border-style: dashed;
+  background: transparent;
+}
+
+.project__name { font-size: 1.3rem; }
+
+.project__subtitle {
+  font-size: 0.85rem;
+  color: var(--color-text-dim);
+}
+
+/* ── Skills ── */
+.skills {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+}
+
+.skill-group__label {
+  font-size: 1.15rem;
+  margin-bottom: var(--space-sm);
+}
+
+/* ── Education ── */
+.edu + .edu {
+  margin-top: var(--space-lg);
+}
+
+.edu__school { font-size: 1.3rem; }
+
+.edu__degree { color: var(--color-text-dim); }
+
+.exp__next {
+  display: inline-block;
+  margin-top: var(--space-xl);
+  font-size: 0.8rem;
+  color: var(--color-accent);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .container       { padding: 0 var(--space-md); }
+  .projects,
+  .skills          { grid-template-columns: 1fr; }
+  .timeline        { padding-left: var(--space-md); }
+  .role::before    { left: calc(-1 * var(--space-md) - 5px); }
+  .role--primary   { padding: var(--space-md); }
+  .role--primary::before {
+    left: calc(-2 * var(--space-md) - 5px);
+    top: calc(var(--space-md) + 0.55rem);
+  }
+}

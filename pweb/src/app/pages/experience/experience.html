@@ -1,1 +1,141 @@
-<p>experience works!</p>
+<main class="exp page-enter">
+
+  <!-- ── Header & Summary ── -->
+  <section class="exp__header">
+    <div class="container">
+      <p class="mono text-muted">// experience</p>
+      <h1 class="exp__title">{{ primaryRole }}</h1>
+      <p class="mono exp__current">
+        <span class="dot"></span> Currently at {{ currentEmployer }}
+      </p>
+      <p class="exp__summary">{{ summary }}</p>
+      <nav class="exp__jump mono" aria-label="Jump to section">
+        <a href="#work">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+      </nav>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── Experience ── -->
+  <section id="work" class="exp__section">
+    <div class="container">
+      <p class="mono text-muted section__label">01 // experience</p>
+
+      @for (employer of employers; track employer.name) {
+        <div class="employer">
+          <div class="employer__head">
+            <h2 class="employer__name">{{ employer.name }}</h2>
+            <span class="mono text-muted">{{ employer.location }}</span>
+          </div>
+
+          <div class="timeline">
+            @for (role of employer.roles; track role.title; let first = $first) {
+              <article class="role" [class.role--primary]="first && employer.name === currentEmployer">
+                <div class="role__head">
+                  <h3 class="role__title">{{ role.title }}</h3>
+                  <span class="mono role__dates">{{ role.dates }}</span>
+                </div>
+                <ul class="bullets">
+                  @for (bullet of role.bullets; track bullet) {
+                    <li>{{ bullet }}</li>
+                  }
+                </ul>
+                <div class="tags">
+                  @for (t of role.tech; track t) {
+                    <span class="tag">{{ t }}</span>
+                  }
+                </div>
+              </article>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── Projects ── -->
+  <section id="projects" class="exp__section exp__section--alt">
+    <div class="container">
+      <p class="mono text-muted section__label">02 // projects</p>
+
+      <div class="projects">
+        @for (project of projects; track project.name) {
+          <article class="project" [class.project--wip]="project.inProgress">
+            <div class="project__head">
+              <h3 class="project__name">{{ project.name }}</h3>
+              <span class="mono project__dates">{{ project.dates }}</span>
+            </div>
+            <p class="project__subtitle">{{ project.subtitle }}</p>
+            @if (project.bullets.length) {
+              <ul class="bullets">
+                @for (bullet of project.bullets; track bullet) {
+                  <li>{{ bullet }}</li>
+                }
+              </ul>
+            }
+            @if (project.tech.length) {
+              <div class="tags">
+                @for (t of project.tech; track t) {
+                  <span class="tag">{{ t }}</span>
+                }
+              </div>
+            }
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── Skills ── -->
+  <section id="skills" class="exp__section">
+    <div class="container">
+      <p class="mono text-muted section__label">03 // skills</p>
+
+      <div class="skills">
+        @for (group of skills; track group.label) {
+          <div class="skill-group">
+            <h3 class="skill-group__label">{{ group.label }}</h3>
+            <div class="tags">
+              @for (item of group.items; track item) {
+                <span class="tag">{{ item }}</span>
+              }
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── Education ── -->
+  <section id="education" class="exp__section exp__section--alt">
+    <div class="container">
+      <p class="mono text-muted section__label">04 // education</p>
+
+      @for (edu of education; track edu.school) {
+        <div class="edu">
+          <div class="edu__head">
+            <h3 class="edu__school">{{ edu.school }}</h3>
+            <span class="mono text-muted">{{ edu.location }}</span>
+          </div>
+          <div class="edu__head">
+            <p class="edu__degree">{{ edu.degree }}</p>
+            <span class="mono role__dates">{{ edu.dates }}</span>
+          </div>
+        </div>
+      }
+
+      <a routerLink="/architecture" class="exp__next mono">See how this site is built →</a>
+    </div>
+  </section>
+
+</main>
