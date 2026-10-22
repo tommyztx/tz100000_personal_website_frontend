@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 
 import { HomeComponent } from './home';
 
@@ -7,8 +8,16 @@ describe('Home', () => {
   let fixture: ComponentFixture<HomeComponent>;
 
   beforeEach(async () => {
+    // jsdom has no IntersectionObserver; stub it for the reveal animation
+    (globalThis as any).IntersectionObserver ??= class {
+      observe() {}
+      unobserve() {}
+      disconnect() {}
+    };
+
     await TestBed.configureTestingModule({
-      imports: [HomeComponent]
+      imports: [HomeComponent],
+      providers: [provideRouter([])],
     })
     .compileComponents();
 
