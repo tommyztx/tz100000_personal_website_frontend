@@ -1,0 +1,111 @@
+<main class="arch page-enter">
+
+  <!-- ── Header ── -->
+  <section class="arch__header">
+    <div class="container">
+      <p class="mono text-muted">// architecture</p>
+      <h1 class="arch__title">How this site<br><span class="accent">is built.</span></h1>
+      <p class="arch__lede">
+        A static Angular front end that talks to data through services, backed by a
+        layered Spring Boot API. The goal is code that is easy to change: every layer
+        has one job and depends on contracts, not implementations.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── Request Flow Diagram ── -->
+  <section class="arch__flow">
+    <div class="container">
+      <p class="mono text-muted">// request flow</p>
+      <ol class="flow" aria-label="Request flow from browser to database">
+        <li class="flow__node">
+          <span class="mono flow__tier">client</span>
+          <span class="flow__name">Browser</span>
+        </li>
+        <li class="flow__node flow__node--live">
+          <span class="mono flow__tier">frontend · vercel</span>
+          <span class="flow__name">Components</span>
+        </li>
+        <li class="flow__node flow__node--live">
+          <span class="mono flow__tier">frontend</span>
+          <span class="flow__name">Services</span>
+        </li>
+        <li class="flow__node flow__node--planned">
+          <span class="mono flow__tier">REST · JSON</span>
+          <span class="flow__name">Controller</span>
+        </li>
+        <li class="flow__node flow__node--planned">
+          <span class="mono flow__tier">spring boot</span>
+          <span class="flow__name">Service</span>
+        </li>
+        <li class="flow__node flow__node--planned">
+          <span class="mono flow__tier">mybatis</span>
+          <span class="flow__name">DAO</span>
+        </li>
+        <li class="flow__node flow__node--planned">
+          <span class="mono flow__tier">data</span>
+          <span class="flow__name">PostgreSQL</span>
+        </li>
+      </ol>
+      <div class="flow__legend mono">
+        <span><i class="swatch swatch--live"></i> live</span>
+        <span><i class="swatch swatch--planned"></i> planned</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── Frontend / Backend ── -->
+  @for (section of sections; track section.label) {
+    <section class="arch__section">
+      <div class="container">
+        <div class="section__head">
+          <span class="mono section__index">{{ section.index }}</span>
+          <p class="mono text-muted">// {{ section.label }}</p>
+          <span class="tag" [class.tag--planned]="section.status === 'Planned'">{{ section.status }}</span>
+        </div>
+        <h2 class="section__title">{{ section.title }}</h2>
+        <p class="section__intro">{{ section.intro }}</p>
+
+        <div class="layers">
+          @for (layer of section.layers; track layer.name) {
+            <article class="layer">
+              <p class="mono layer__role">{{ layer.role }}</p>
+              <h3 class="layer__name">{{ layer.name }}</h3>
+              <ul class="layer__points">
+                @for (point of layer.points; track point) {
+                  <li>{{ point }}</li>
+                }
+              </ul>
+            </article>
+          }
+        </div>
+      </div>
+    </section>
+    <div class="divider"></div>
+  }
+
+  <!-- ── Design Principles ── -->
+  <section class="arch__section arch__section--alt">
+    <div class="container">
+      <div class="section__head">
+        <span class="mono section__index">03</span>
+        <p class="mono text-muted">// principles</p>
+      </div>
+      <h2 class="section__title">Built to be maintained</h2>
+
+      <div class="principles">
+        @for (principle of principles; track principle.name) {
+          <div class="principle">
+            <h3 class="principle__name">{{ principle.name }}</h3>
+            <p>{{ principle.detail }}</p>
+          </div>
+        }
+      </div>
+
+      <a routerLink="/experience" class="arch__next mono">See the experience behind it →</a>
+    </div>
+  </section>
+
+</main>

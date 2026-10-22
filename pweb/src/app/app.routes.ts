@@ -14,12 +14,12 @@ export const routes: Routes = [
         (m) => m.ExperienceComponent
       ),
   },
-  // { Future implementation maybe
-  //   path: 'architecture',
-  //   loadComponent: () =>
-  //     import('./pages/architecture/architecture').then(
-  //       (m) => m.ArchitectureComponent
-  //     ),
-  // },
+  {
+    path: 'architecture',
+    loadComponent: () =>
+      import('./pages/architecture/architecture').then(
+        (m) => m.ArchitectureComponent
+      ),
+  },
   { path: '**', redirectTo: '' },
 ];
