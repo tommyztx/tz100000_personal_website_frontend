@@ -11,7 +11,18 @@ HTML/CSS
 
 My hope is to deliver this website as I would a real product, showcasing my own comprehension of the software development life cycle. 
 
-# Current Goals as of 3/14
+# COMPLETED as of 10/22
+
+* Home page
+    - Established home page with hero, about, and explore sections
+    - Green (sage) color scheme, headshot, updated photos and site icon
+    - Flex layout for columns
+* Navbar component and routing for Home, Experience, and Architecture
+* Deployed static front end
+    - Angular site (`pweb/`) prerendered and deployed on Vercel
+    - Fixed server side rendering for the Vercel deployment
+
+# Current Goals as of 10/22
 
 Create pages, and components
 * Home page
@@ -28,9 +39,8 @@ Create pages, and components
 
 Setup Services and Mock Backend
 * Connect to project links?
+* Build a Spring Boot RESTful API (controller, service, DAO layers) for the frontend services to consume
 
 CI/CD
-* Create Jenkins Box and set up live website
-    - Create pipeline to deploy any changes made to this repo and attach any git hooks to ensure website runs.
-* Launch Website on Azure or AWS
-    - Set up storge for files maybe on an S3 and set up website on a service.
+* Launch backend on Azure or AWS
+    - Set up storage for files maybe on an S3 and set up the backend on a service.
